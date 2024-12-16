@@ -28,7 +28,17 @@ Do przekminy:
 #include <elevator.hpp>
 
 namespace bk{
+    class Elevator{
+    private:
+        double m_CurrentFloor;
+        double m_TargetFloor;
+        double m_MaxFloor;
+        double m_MinFloor;
+        bool m_isOperational;
+        direction m_CurrentDirection;
 
+
+    public:
     Elevator(double CurrentFloor, double TargetFloor, double MaxFloor, double MinFloor) : 
         m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
         currentDirection(direction::idle), m_MaxFloor(MaxFloor),
@@ -93,4 +103,5 @@ namespace bk{
 
 
     Elevator::~Elevator();
+}
 }
