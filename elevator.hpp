@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 
-enum class direction {up, down, idle};
+// Could be simpler, however class give us better encapsulation
+enum class direction {up, down, idle}; //idle non operating in that moment
 
 namespace bk {
     class Elevator {

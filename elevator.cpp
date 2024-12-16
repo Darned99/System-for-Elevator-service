@@ -31,7 +31,7 @@ namespace bk{
 
     bk::Elevator::Elevator(double CurrentFloor, double TargetFloor, double MaxFloor, double MinFloor) : 
         m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
-        currentDirection(direction::idle), m_MaxFloor(MaxFloor),
+        m_CurrentDirection(direction::idle), m_MaxFloor(MaxFloor),
         m_MinFloor(MinFloor), m_isOperational(true) {};
 
 
@@ -89,8 +89,9 @@ namespace bk{
     }
 
     //Curent state
-    direction bk::Elevator::getDirection() const;
-
+    direction bk::Elevator::getDirection() const {
+        return m_CurrentDirection;
+    }
 
     bk::Elevator::~Elevator();
 }
