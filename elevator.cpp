@@ -28,18 +28,8 @@ Do przekminy:
 #include <elevator.hpp>
 
 namespace bk{
-    class Elevator{
-    private:
-        double m_CurrentFloor;
-        double m_TargetFloor;
-        double m_MaxFloor;
-        double m_MinFloor;
-        bool m_isOperational;
-        direction m_CurrentDirection;
 
-
-    public:
-    Elevator(double CurrentFloor, double TargetFloor, double MaxFloor, double MinFloor) : 
+    bk::Elevator::Elevator(double CurrentFloor, double TargetFloor, double MaxFloor, double MinFloor) : 
         m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
         currentDirection(direction::idle), m_MaxFloor(MaxFloor),
         m_MinFloor(MinFloor), m_isOperational(true) {};
@@ -52,7 +42,7 @@ namespace bk{
         
 
     //Elevator movement
-    void Elevator::moveUp(){
+    void bk::Elevator::moveUp(){
         if(isOperational){
             if(m_CurrentFloor < m_MaxFloor){
                 currentDirection = direction::up;
@@ -65,7 +55,7 @@ namespace bk{
         }
     }
 
-    void Elevator::moveDown(){
+    void bk::Elevator::moveDown(){
         if(isOperational){
             if(m_CurrentFloor > m_MinFloor){
                 currentDirection = direction::down;
@@ -78,7 +68,7 @@ namespace bk{
         }
     }
 
-    void Elevator::stop(){
+    void bk::Elevator::stop(){
         if(isOperational){
             currentDirection = direction::idle;
             std::cout << "Elevator stopped at floor: " << m_CurrentFloor;
@@ -86,22 +76,21 @@ namespace bk{
     }
 
     //Elevator targets
-    void Elevator::addTargetFloor(double floor){
+    void bk::Elevator::addTargetFloor(double floor){
 
     }
 
-    void Elevator::removeTargetFloor(double floor){
+    void bk::Elevator::removeTargetFloor(double floor){
 
     }
 
-    double Elevator::getNextTarget(){
+    double bk::Elevator::getNextTarget(){
 
     }
 
     //Curent state
-    direction Elevator::getDirection() const;
+    direction bk::Elevator::getDirection() const;
 
 
-    Elevator::~Elevator();
-}
+    bk::Elevator::~Elevator();
 }
