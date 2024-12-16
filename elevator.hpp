@@ -120,17 +120,6 @@ namespace bk{
         direction getDirection() const;
 
 
-        //Potential use for overloading operator
-        //Propably will be used in lobby
-        bool operator==(const Elevator& other) const {
-            return (Elevator == other.Elevator);
-        }
-
-        bool operator!=(const Elevator& other) const {
-            return !(*this == other);
-        }
-
-
-~Elevator();
+        ~Elevator();
 }
 }
