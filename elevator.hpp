@@ -11,7 +11,6 @@ Do zrealizowania:
 - przeciążenie operatorów (ale też bez sensu nie przeciążać)
 - template (chociaż dla windy raczej bez sensu)
 - repo github
-- 
 */
 
 /*
@@ -27,12 +26,18 @@ Do przekminy:
 #pragma once
 #include <iostream>
 #include <vector>
+
+/*
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+*/
 
-// Coule be simpler, however class give us better encapsulation
+//#define number_of_floors(30)
+//#define QueueVector(number_of_floors)
+
+// Could be simpler, however class give us better encapsulation
 enum class direction {up, down, idle}; //idle non operating in that moment
 
 namespace bk{
@@ -44,11 +49,13 @@ namespace bk{
             double m_MaxFloor;
             double m_MinFloor;
             bool isOperational;
-            std::vector<double> m_TargetFloors; //Queue vector for elevator floors to handle
+            //std::vector<double> m_TargetFloors; //Queue vector for elevator floors to handle
             direction currentDirection;
 
 
         public: 
+            std::vector<double> number_of_floors; //Queue vector for elevator floors to handle
+            
             Elevator(double CurrentFloor, double TargetFloor, double MaxFloor, double MinFloor) : 
             m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
             currentDirection(direction::idle), m_MaxFloor(MaxFloor),
@@ -59,7 +66,7 @@ namespace bk{
 
         // Vector buffer
 
-
+        
 
         //Elevator movement
         void moveUp(){
@@ -111,6 +118,17 @@ namespace bk{
 
         //Curent state
         direction getDirection() const;
+
+
+        //Potential use for overloading operator
+        //Propably will be used in lobby
+        bool operator==(const Elevator& other) const {
+            return (Elevator == other.Elevator);
+        }
+
+        bool operator!=(const Elevator& other) const {
+            return !(*this == other);
+        }
 
 
 ~Elevator();
