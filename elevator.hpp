@@ -27,6 +27,10 @@ Do przekminy:
 #pragma once
 #include <iostream>
 #include <vector>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // Coule be simpler, however class give us better encapsulation
 enum class direction {up, down, idle}; //idle non operating in that moment
@@ -37,34 +41,50 @@ namespace bk{
             // State of elevator 
             double m_CurrentFloor; 
             double m_TargetFloor;
+            double m_MaxFloor;
+            double m_MinFloor;
             bool isOperational;
             std::vector<double> m_TargetFloors; //Queue vector for elevator floors to handle
             direction currentDirection;
 
 
         public: 
-            Elevator(double CurrentFloor, double TargetFloor) : 
+            Elevator(double CurrentFloor, double TargetFloor, double MaxFloor, double MinFloor) : 
             m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
-            currentDirection(direction::idle), isOperational(true) {};
+            currentDirection(direction::idle), m_MaxFloor(MaxFloor),
+            m_MinFloor(MinFloor), m_isOperational(true) {};
 
 
         //Sprawdzamy stan czy działa, na tej podstawie dodajemy (dlaczego tu nie ma destinated floor)
+
+        // Vector buffer
+
 
 
         //Elevator movement
         void moveUp(){
             if(isOperational){
-                currentDirection = direction::up;
-                m_CurrentFloor++;
-                std::cout << "Moving up. Current floor: " << m_CurrentFloor;
+                if(m_CurrentFloor < m_MaxFloor){
+                    currentDirection = direction::up;
+                    m_CurrentFloor++;
+                    std::cout << "Moving up. Current floor: " << m_CurrentFloor;
+                }
+                else {
+                    std::cout << "Cannot go higher, we reached the top floor: " << m_CurrentFloor;
+                }
             }
         }
 
         void moveDown(){
             if(isOperational){
-                currentDirection = direction::down;
-                m_CurrentFloor--;
-                std::cout << "Moving down. Current floor: " << m_CurrentFloor;
+                if(m_CurrentFloor > m_MinFloor){
+                    currentDirection = direction::down;
+                    m_CurrentFloor--;
+                    std::cout << "Moving down. Current floor: " << m_CurrentFloor;
+                }
+                else {
+                    std::cout << "Cannot go lower, we reached the bottom floor: " << m_CurrentFloor;
+                }
             }
         }
 
@@ -78,7 +98,7 @@ namespace bk{
 
         //Elevator targets
         void addTargetFloor(double floor){
-
+            
         }
 
         void removeTargetFloor(double floor){
