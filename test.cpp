@@ -19,10 +19,10 @@ int main(){
 
     std::cout << ""
     */
-    bk::Elevator elevator(5.0, 10.0, 15.0, 0.0);
+    bk::Elevator elevator(5, 10, 15, 0);
 
     elevator.addTargetFloor(7);
-    elevator.addTargetFloor(3);
+    elevator.addTargetFloor(-3);
     elevator.addTargetFloor(11);
 
     elevator.processRequests();

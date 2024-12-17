@@ -24,9 +24,6 @@ namespace bk{
                 m_CurrentFloor++;
                 std::cout << "Moving up. Current floor: " << m_CurrentFloor << std::endl;
             }
-            else {
-                std::cout << "Cannot go higher, elevator reached the top floor: " << m_CurrentFloor << std::endl;
-            }
         }
     }
 
@@ -36,9 +33,6 @@ namespace bk{
                 m_CurrentDirection = direction::down;
                 m_CurrentFloor--;
                 std::cout << "Moving down. Current floor: " << m_CurrentFloor << std::endl;
-            }
-            else {
-                std::cout << "Cannot go lower, elevator reached the bottom floor: " << m_CurrentFloor << std::endl;
             }
         }
     }
