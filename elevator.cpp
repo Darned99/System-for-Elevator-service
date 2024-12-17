@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <queue> //Needed for FIFO buffer
-#include <elevator.hpp>
+#include "elevator.hpp"
 
 namespace bk{
 
@@ -90,7 +90,7 @@ namespace bk{
          }
     }
 
-    // This method process all queued floor and moves the elevator to each target
+    // This method process all queued floors and moves the elevator to each target
     void bk::Elevator::processRequests(){
         while (!m_requests.empty()) {
             double nextFloor = getNextTarget();
@@ -104,5 +104,5 @@ namespace bk{
         return m_CurrentDirection;
     }
 
-    bk::Elevator::~Elevator();
+    bk::Elevator::~Elevator() {}
 }
