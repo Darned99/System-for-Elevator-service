@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <queue>
 
 // Could be simpler, however class give us better encapsulation
 enum class direction {up, down, idle}; //idle non operating in that moment
@@ -14,6 +15,7 @@ namespace bk {
             double m_MinFloor;
             bool m_isOperational;
             direction m_CurrentDirection;
+            std::queue<int> m_requests;
 
         public:
             Elevator(double currentFloor, double targetFloor,

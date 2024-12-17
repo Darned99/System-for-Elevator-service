@@ -43,9 +43,9 @@ namespace bk{
 
     //Elevator movement
     void bk::Elevator::moveUp(){
-        if(isOperational){
+        if(m_isOperational){
             if(m_CurrentFloor < m_MaxFloor){
-                currentDirection = direction::up;
+                m_CurrentDirection = direction::up;
                 m_CurrentFloor++;
                 std::cout << "Moving up. Current floor: " << m_CurrentFloor;
             }
@@ -56,9 +56,9 @@ namespace bk{
     }
 
     void bk::Elevator::moveDown(){
-        if(isOperational){
+        if(m_isOperational){
             if(m_CurrentFloor > m_MinFloor){
-                currentDirection = direction::down;
+                m_CurrentDirection = direction::down;
                 m_CurrentFloor--;
                 std::cout << "Moving down. Current floor: " << m_CurrentFloor;
             }
@@ -69,14 +69,21 @@ namespace bk{
     }
 
     void bk::Elevator::stop(){
-        if(isOperational){
-            currentDirection = direction::idle;
+        if(m_isOperational){
+            m_CurrentDirection = direction::idle;
             std::cout << "Elevator stopped at floor: " << m_CurrentFloor;
         }
     }
 
     //Elevator targets
     void bk::Elevator::addTargetFloor(double floor){
+        if(floor >= m_MinFloor && floor <= m_MaxFloor){
+            m_requests.push(floor);
+            std::cout << "Added target floor: " << floor << "\n";
+        }
+         else{
+            std::cout << "Invalid floor request: " << floor << "\n";
+         }
 
     }
 
@@ -85,7 +92,14 @@ namespace bk{
     }
 
     double bk::Elevator::getNextTarget(){
-
+        if(!m_requests.empty()) {
+            double nextFloor = m_requests.front();
+            m_requests.pop();
+            return nextFloor;
+        }
+        else {
+            return m_CurrentFloor;
+        }
     }
 
     //Curent state
