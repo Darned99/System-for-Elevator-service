@@ -10,7 +10,7 @@
 
 namespace bk{
 
-    bk::Elevator::Elevator(double CurrentFloor, double TargetFloor, double MaxFloor, double MinFloor) : 
+    bk::Elevator::Elevator(int CurrentFloor, int TargetFloor, int MaxFloor, int MinFloor) : 
         m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
         m_CurrentDirection(direction::idle), m_MaxFloor(MaxFloor),
         m_MinFloor(MinFloor), m_isOperational(true) {};
@@ -22,10 +22,10 @@ namespace bk{
             if(m_CurrentFloor < m_MaxFloor){
                 m_CurrentDirection = direction::up;
                 m_CurrentFloor++;
-                std::cout << "Moving up. Current floor: " << m_CurrentFloor;
+                std::cout << "Moving up. Current floor: " << m_CurrentFloor << std::endl;
             }
             else {
-                std::cout << "Cannot go higher, elevator reached the top floor: " << m_CurrentFloor;
+                std::cout << "Cannot go higher, elevator reached the top floor: " << m_CurrentFloor << std::endl;
             }
         }
     }
@@ -35,10 +35,10 @@ namespace bk{
             if(m_CurrentFloor > m_MinFloor){
                 m_CurrentDirection = direction::down;
                 m_CurrentFloor--;
-                std::cout << "Moving down. Current floor: " << m_CurrentFloor;
+                std::cout << "Moving down. Current floor: " << m_CurrentFloor << std::endl;
             }
             else {
-                std::cout << "Cannot go lower, elevator reached the bottom floor: " << m_CurrentFloor;
+                std::cout << "Cannot go lower, elevator reached the bottom floor: " << m_CurrentFloor << std::endl;
             }
         }
     }
@@ -46,12 +46,12 @@ namespace bk{
     void bk::Elevator::stop(){
         if(m_isOperational){
             m_CurrentDirection = direction::idle;
-            std::cout << "Elevator stopped at floor: " << m_CurrentFloor;
+            std::cout << "Elevator stopped at floor: " << m_CurrentFloor << std::endl;
         }
     }
 
 
-    void bk::Elevator::moveToFloor(double destinationFloor) {
+    void bk::Elevator::moveToFloor(int destinationFloor) {
         if(m_isOperational){
             while (m_CurrentFloor != destinationFloor){
                 if (m_CurrentFloor < destinationFloor) {
@@ -65,9 +65,9 @@ namespace bk{
     }
 
 
-    double bk::Elevator::getNextTarget(){
+    int bk::Elevator::getNextTarget(){
         if(!m_requests.empty()) {
-            double nextFloor = m_requests.front(); 
+            int nextFloor = m_requests.front(); 
             m_requests.pop();
             return nextFloor;
         }
@@ -80,20 +80,20 @@ namespace bk{
     //Elevator targets
     /* I'll be using targets with buffer FIFO (First in first out) 
     */
-    void bk::Elevator::addTargetFloor(double floor){
+    void bk::Elevator::addTargetFloor(int floor){
         if(floor >= m_MinFloor && floor <= m_MaxFloor){
             m_requests.push(floor);
-            std::cout << "Added target floor: " << floor << "\n";
+            std::cout << "Added target floor: " << floor << "\n" << std::endl;
         }
          else {
-            std::cout << "Invalid floor request: " << floor << "\n";
+            std::cout << "Invalid floor request: " << floor << "\n" << std::endl;
          }
     }
 
     // This method process all queued floors and moves the elevator to each target
     void bk::Elevator::processRequests(){
         while (!m_requests.empty()) {
-            double nextFloor = getNextTarget();
+            int nextFloor = getNextTarget();
             moveToFloor(nextFloor);
             stop();
         }

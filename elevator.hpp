@@ -9,26 +9,27 @@ enum class direction {up, down, idle}; //idle non operating in that moment
 namespace bk {
     class Elevator {
         private:
-            double m_CurrentFloor;
-            double m_TargetFloor;
-            double m_MaxFloor;
-            double m_MinFloor;
+            int m_CurrentFloor;
+            int m_TargetFloor;
+            int m_MaxFloor;
+            int m_MinFloor;
             bool m_isOperational;
             direction m_CurrentDirection;
-            std::queue<double> m_requests;
+            std::queue<int> m_requests;
 
         public:
-            Elevator(double currentFloor, double targetFloor,
-            double maxFloor, double minFloor);
+            Elevator(int currentFloor, int targetFloor,
+            int maxFloor, int minFloor);
 
 
             void moveUp();
             void moveDown();
             void stop();
-            void moveToFloor(double destinationFloor);
+            void moveToFloor(int destinationFloor);
 
-            void addTargetFloor(double floor);            
-            double getNextTarget();
+            void addTargetFloor(int floor);            
+            int getNextTarget();
+            void processRequests();
 
             direction getDirection() const;
 
