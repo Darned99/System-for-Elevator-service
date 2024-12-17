@@ -15,18 +15,21 @@ namespace bk {
             double m_MinFloor;
             bool m_isOperational;
             direction m_CurrentDirection;
-            std::queue<int> m_requests;
+            std::queue<double> m_requests;
 
         public:
             Elevator(double currentFloor, double targetFloor,
             double maxFloor, double minFloor);
 
+
             void moveUp();
             void moveDown();
             void stop();
-            void addTargetFloor(double floor);
-            void removeTargetFloor(double floor);
+            void moveToFloor(double destinationFloor);
+
+            void addTargetFloor(double floor);            
             double getNextTarget();
+
             direction getDirection() const;
 
             ~Elevator();

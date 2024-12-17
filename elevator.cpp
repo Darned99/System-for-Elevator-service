@@ -3,28 +3,9 @@
  * 
  ****************************************************************************************************/
 
-/*
-Do zrealizowania: 
-- maksymalnie trzy poziomy dziedziczenia
-- przestrzeń swoja tj. bk::
-- konstruktory
-- przeciążenie operatorów (ale też bez sensu nie przeciążać)
-- template (chociaż dla windy raczej bez sensu)
-- repo github
-*/
-
-/*
-Do przekminy:
-    aktualne piętro
-    liczba pięter
-    liczba wind
-    kierunek (góra, dół)
-    stan windy (czy porusza się, czy jest w miejscu)
-    logika jazdy i doboru windy
-*/
-
 #include <iostream>
 #include <vector>
+#include <queue> //Needed for FIFO buffer
 #include <elevator.hpp>
 
 namespace bk{
@@ -33,13 +14,7 @@ namespace bk{
         m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
         m_CurrentDirection(direction::idle), m_MaxFloor(MaxFloor),
         m_MinFloor(MinFloor), m_isOperational(true) {};
-
-
-    //Sprawdzamy stan czy działa, na tej podstawie dodajemy (dlaczego tu nie ma destinated floor)
-
-    // Vector buffer
-
-        
+  
 
     //Elevator movement
     void bk::Elevator::moveUp(){
@@ -75,30 +50,52 @@ namespace bk{
         }
     }
 
-    //Elevator targets
-    void bk::Elevator::addTargetFloor(double floor){
-        if(floor >= m_MinFloor && floor <= m_MaxFloor){
-            m_requests.push(floor);
-            std::cout << "Added target floor: " << floor << "\n";
+
+    void bk::Elevator::moveToFloor(double destinationFloor) {
+        if(m_isOperational){
+            while (m_CurrentFloor != destinationFloor){
+                if (m_CurrentFloor < destinationFloor) {
+                    moveUp();
+                }
+                else if (m_CurrentFloor > destinationFloor) {
+                    moveDown();
+                } 
+            }
         }
-         else{
-            std::cout << "Invalid floor request: " << floor << "\n";
-         }
-
     }
 
-    void bk::Elevator::removeTargetFloor(double floor){
-
-    }
 
     double bk::Elevator::getNextTarget(){
         if(!m_requests.empty()) {
-            double nextFloor = m_requests.front();
+            double nextFloor = m_requests.front(); 
             m_requests.pop();
             return nextFloor;
         }
         else {
             return m_CurrentFloor;
+        }
+    }
+
+
+    //Elevator targets
+    /* I'll be using targets with buffer FIFO (First in first out) 
+    */
+    void bk::Elevator::addTargetFloor(double floor){
+        if(floor >= m_MinFloor && floor <= m_MaxFloor){
+            m_requests.push(floor);
+            std::cout << "Added target floor: " << floor << "\n";
+        }
+         else {
+            std::cout << "Invalid floor request: " << floor << "\n";
+         }
+    }
+
+    // This method process all queued floor and moves the elevator to each target
+    void bk::Elevator::processRequests(){
+        while (!m_requests.empty()) {
+            double nextFloor = getNextTarget();
+            moveToFloor(nextFloor);
+            stop();
         }
     }
 
