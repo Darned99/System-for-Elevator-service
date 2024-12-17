@@ -8,7 +8,7 @@ enum class direction {up, down, idle}; //idle non operating in that moment
 
 namespace bk {
     class Elevator {
-        private:
+        protected:
             int m_CurrentFloor;
             int m_TargetFloor;
             int m_MaxFloor;
