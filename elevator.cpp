@@ -77,10 +77,10 @@ namespace bk{
     void bk::Elevator::addTargetFloor(int floor){
         if(floor >= m_MinFloor && floor <= m_MaxFloor){
             m_requests.push(floor);
-            std::cout << "Added target floor: " << floor << "\n" << std::endl;
+            std::cout << "Added target floor: " << floor << std::endl;
         }
          else {
-            std::cout << "Invalid floor request: " << floor << "\n" << std::endl;
+            std::cout << "Invalid floor request: " << floor << std::endl;
          }
     }
 
