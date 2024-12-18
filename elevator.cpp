@@ -6,7 +6,6 @@
 #include <iostream>
 #include <vector>
 #include <queue> //Needed for FIFO buffer
-#include "lobby.hpp"
 #include "elevator.hpp"
 
 namespace bk{
