@@ -18,11 +18,11 @@ namespace bk {
         public:
             Elevator(int currentFloor, int maxFloor, int minFloor);
 
-            /*
+            
             // Overloaded operators
-            bool operator==(const Elevator& other);
-            bool operator!=(const Elevator& other);
-            */
+            bool operator==(const Elevator& other) const;
+            bool operator!=(const Elevator& other) const;
+            
 
             // Setters and getters
             void setCurrentFloor(int CurrentFloor);

@@ -17,18 +17,18 @@ namespace bk{
         " Max Floor: " << MaxFloor << " Min Floor: " << MinFloor << std::endl;
     };
     
-    /*
+    
     // Overloaded operators
     bool bk::Elevator::operator==(const bk::Elevator& other) const {
-        return (m_CurrentFloor == other.m_CurrentFloor,
-        m_MaxFloor == other.m_MaxFloor,
+        return (m_CurrentFloor == other.m_CurrentFloor &&
+        m_MaxFloor == other.m_MaxFloor &&
         m_MinFlor == other.m_MinFllor);
     }
     
     bool bk::Elevator::operator!=(const bk::Elevator& other) const {
         return !(*this == other);
     }
-    */
+    
 
     // Setters and getters to possible implementation for encapsulation data
     void bk::Elevator::setCurrentFloor(int CurrentFloor){
