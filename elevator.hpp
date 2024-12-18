@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <vector>
 #include <queue>
 
 // Could be simpler, however class give us better encapsulation
@@ -19,18 +18,20 @@ namespace bk {
         public:
             Elevator(int currentFloor, int maxFloor, int minFloor);
 
+            /*
             // Overloaded operators
-            bool operator==();
-            bool operator!=();
+            bool operator==(const Elevator& other);
+            bool operator!=(const Elevator& other);
+            */
 
             // Setters and getters
-            void setCurrentFloor();
+            void setCurrentFloor(int CurrentFloor);
             int getCurrentFloor() const;
 
-            void setMaxFloor();
+            void setMaxFloor(int MaxFloor);
             int getMaxFloor() const;
 
-            void setMinFloor();
+            void setMinFloor(int MinFloor);
             int getMinFloor() const;
 
             // Funtions responsible for movement

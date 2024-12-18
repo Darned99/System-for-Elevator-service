@@ -4,7 +4,6 @@
  ****************************************************************************************************/
 
 #include <iostream>
-#include <vector>
 #include <queue> //Needed for FIFO buffer
 #include "elevator.hpp"
 
@@ -13,18 +12,23 @@ namespace bk{
     bk::Elevator::Elevator(int CurrentFloor,int MaxFloor, int MinFloor) : 
         m_CurrentFloor(CurrentFloor), m_CurrentDirection(direction::idle),
         m_MaxFloor(MaxFloor), m_MinFloor(MinFloor), m_isOperational(true) {
-        std::cout << "Constructor: " << std::endl;
+        
+        std::cout << "Constructor: " << "Current floor: " << CurrentFloor <<
+        " Max Floor: " << MaxFloor << " Min Floor: " << MinFloor << std::endl;
     };
     
-
+    /*
     // Overloaded operators
-    bool bk::Elevator::operator==(const Elevator& other) const {
-        return (Elevator == other.Elevator);
+    bool bk::Elevator::operator==(const bk::Elevator& other) const {
+        return (m_CurrentFloor == other.m_CurrentFloor,
+        m_MaxFloor == other.m_MaxFloor,
+        m_MinFlor == other.m_MinFllor);
     }
     
-    bool bk::Elevator::operator!=(const Elevator& other) const {
+    bool bk::Elevator::operator!=(const bk::Elevator& other) const {
         return !(*this == other);
     }
+    */
 
     // Setters and getters to possible implementation for encapsulation data
     void bk::Elevator::setCurrentFloor(int CurrentFloor){
@@ -134,6 +138,8 @@ namespace bk{
         return m_CurrentDirection;
     }
 
-    bk::Elevator::~Elevator() {}
+    bk::Elevator::~Elevator() {
+        std::cout << "Destructor called" << std::endl;
+    }
 }
 

@@ -10,16 +10,28 @@ int main(){
     double number_of_floors;
 
     std::cout << "Set up program. How many elevator would you like" << std::endl;
-    std::cin << number_of_elevators;
+    std::cin >> number_of_elevators;
 
     std::cout << "How many floors are in the building?" << std::endl;
-    std::cin << number_of_floors;
+    std::cin >> number_of_floors;
 
 
 
     std::cout << ""
     */
-    bk::Elevator elevator(5, 15, 0);
+
+    int CurrentFloor;
+    int MaxFloor;
+    int MinFloor;
+
+    std::cout << "Set up program. Which floor we're starting at: ";
+    std::cin >> CurrentFloor;
+    std::cout << " What's the top floor the building has: ";
+    std::cin >> MaxFloor;
+    std::cout << " What's the bottom floor the building has: ";
+    std::cin >> MinFloor;
+
+    bk::Elevator elevator(CurrentFloor, MaxFloor, MinFloor);
 
     elevator.addTargetFloor(7);
     elevator.addTargetFloor(-3);
