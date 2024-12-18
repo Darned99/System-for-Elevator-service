@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <queue> //Needed for FIFO buffer
+#include "lobby.hpp"
 #include "elevator.hpp"
 
 namespace bk{
@@ -15,6 +16,15 @@ namespace bk{
         m_CurrentDirection(direction::idle), m_MaxFloor(MaxFloor),
         m_MinFloor(MinFloor), m_isOperational(true) {};
   
+
+    // Overloaded operators
+    bool operator==(const Elevator& other) const {
+        return (Elevator == other.Elevator);
+    }
+    
+    bool operator!=(const Elevator& other) const {
+        return !(*this == other);
+    }
 
     //Elevator movement
     void bk::Elevator::moveUp(){
