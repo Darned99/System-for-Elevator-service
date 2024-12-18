@@ -22,7 +22,7 @@ namespace bk{
     bool bk::Elevator::operator==(const bk::Elevator& other) const {
         return (m_CurrentFloor == other.m_CurrentFloor &&
         m_MaxFloor == other.m_MaxFloor &&
-        m_MinFlor == other.m_MinFllor);
+        m_MinFloor == other.m_MinFloor);
     }
     
     bool bk::Elevator::operator!=(const bk::Elevator& other) const {
@@ -30,7 +30,7 @@ namespace bk{
     }
     
 
-    // Setters and getters to possible implementation for encapsulation data
+    // Setters and getters to possible implementation for data validation
     void bk::Elevator::setCurrentFloor(int CurrentFloor){
         m_CurrentFloor = CurrentFloor;
     }
