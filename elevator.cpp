@@ -26,8 +26,12 @@ namespace bk{
         return !(*this == other);
     }
 
-    void bk::Elevator::setCurrentFloor(double CurrentFloor){
+    void bk::Elevator::setCurrentFloor(int CurrentFloor){
         m_CurrentFloor = CurrentFloor;
+    }
+
+    int bk::ElevatorgetCurrnetFloor() const {
+        return m_CurrentFloor;
     }
 
     //Elevator movement
