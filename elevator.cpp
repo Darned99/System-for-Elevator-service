@@ -11,28 +11,47 @@
 
 namespace bk{
     
-    bk::Elevator::Elevator(int CurrentFloor, int TargetFloor, int MaxFloor, int MinFloor) : 
-        m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
-        m_CurrentDirection(direction::idle), m_MaxFloor(MaxFloor),
-        m_MinFloor(MinFloor), m_isOperational(true) {};
+    bk::Elevator::Elevator(int CurrentFloor,int MaxFloor, int MinFloor) : 
+        m_CurrentFloor(CurrentFloor), m_CurrentDirection(direction::idle),
+        m_MaxFloor(MaxFloor), m_MinFloor(MinFloor), m_isOperational(true) {
+        std::cout << "Constructor: " << std::endl;
+    };
     
 
     // Overloaded operators
-    bool operator==(const Elevator& other) const {
+    bool bk::Elevator::operator==(const Elevator& other) const {
         return (Elevator == other.Elevator);
     }
     
-    bool operator!=(const Elevator& other) const {
+    bool bk::Elevator::operator!=(const Elevator& other) const {
         return !(*this == other);
     }
 
+    // Setters and getters to possible implementation for encapsulation data
     void bk::Elevator::setCurrentFloor(int CurrentFloor){
         m_CurrentFloor = CurrentFloor;
     }
 
-    int bk::ElevatorgetCurrnetFloor() const {
+    int bk::Elevator::getCurrentFloor() const {
         return m_CurrentFloor;
     }
+
+    void bk::Elevator::setMaxFloor(int MaxFloor){
+        m_MaxFloor = MaxFloor;
+    }
+
+    int bk::Elevator::getMaxFloor() const {
+        return m_MaxFloor;
+    }
+
+    void bk::Elevator::setMinFloor(int MinFloor){
+        m_MinFloor = MinFloor;
+    }
+
+    int bk::Elevator::getMinFloor() const {
+        return m_MinFloor;
+    }
+    
 
     //Elevator movement
     void bk::Elevator::moveUp(){
