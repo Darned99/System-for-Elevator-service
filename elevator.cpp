@@ -10,7 +10,7 @@
 #include "elevator.hpp"
 
 namespace bk{
-
+    
     bk::Elevator::Elevator(int CurrentFloor, int TargetFloor, int MaxFloor, int MinFloor) : 
         m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
         m_CurrentDirection(direction::idle), m_MaxFloor(MaxFloor),
@@ -114,3 +114,4 @@ namespace bk{
 
     bk::Elevator::~Elevator() {}
 }
+
