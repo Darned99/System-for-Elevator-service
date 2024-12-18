@@ -23,6 +23,8 @@ int main(){
     int CurrentFloor;
     int MaxFloor;
     int MinFloor;
+    
+    int TargetFloor;
 
     std::cout << "Set up program. Which floor we're starting at: ";
     std::cin >> CurrentFloor;
@@ -33,11 +35,24 @@ int main(){
 
     bk::Elevator elevator(CurrentFloor, MaxFloor, MinFloor);
 
-    elevator.addTargetFloor(7);
-    elevator.addTargetFloor(-3);
-    elevator.addTargetFloor(11);
-
+    std::cout << "Proceed to enter destination: ";
+    std::cin >> TargetFloor;
+    elevator.addTargetFloor(TargetFloor);       //Example 7
     elevator.processRequests();
+    
+    std::cout << "Proceed to enter destination: ";
+    std::cin >> TargetFloor;
+    elevator.addTargetFloor(TargetFloor);       //Example -3
+    elevator.processRequests();
+    
+    
+    std::cout << "Proceed to enter destination: ";
+    std::cin >> TargetFloor;
+    elevator.addTargetFloor(TargetFloor);       //Example 11
+    elevator.processRequests();
+    
+
+    //elevator.processRequests();
 
     return 0;
 }
