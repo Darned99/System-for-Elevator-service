@@ -1,8 +1,7 @@
 #include <iostream>
 #include "elevator.hpp"
 //#include "lobby.hpp"
-//#include <string>
-//#include <vector>
+
 
 int main(){
     
@@ -38,21 +37,21 @@ int main(){
     std::cout << "Proceed to enter destination: ";
     std::cin >> TargetFloor;
     elevator.addTargetFloor(TargetFloor);       //Example 7
-    elevator.processRequests();
+    //elevator.processRequests();
     
     std::cout << "Proceed to enter destination: ";
     std::cin >> TargetFloor;
     elevator.addTargetFloor(TargetFloor);       //Example -3
-    elevator.processRequests();
+    //elevator.processRequests();
     
     
     std::cout << "Proceed to enter destination: ";
     std::cin >> TargetFloor;
     elevator.addTargetFloor(TargetFloor);       //Example 11
-    elevator.processRequests();
+    //elevator.processRequests();
     
 
-    //elevator.processRequests();
+    elevator.processRequests();
 
     return 0;
 }
