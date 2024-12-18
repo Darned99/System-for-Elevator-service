@@ -15,7 +15,7 @@ namespace bk{
         m_CurrentFloor(CurrentFloor), m_TargetFloor(TargetFloor),
         m_CurrentDirection(direction::idle), m_MaxFloor(MaxFloor),
         m_MinFloor(MinFloor), m_isOperational(true) {};
-  
+    
 
     // Overloaded operators
     bool operator==(const Elevator& other) const {
@@ -24,6 +24,10 @@ namespace bk{
     
     bool operator!=(const Elevator& other) const {
         return !(*this == other);
+    }
+
+    void bk::Elevator::setCurrentFloor(double CurrentFloor){
+        m_CurrentFloor = CurrentFloor;
     }
 
     //Elevator movement
