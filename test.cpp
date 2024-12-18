@@ -1,8 +1,8 @@
 #include <iostream>
 #include "elevator.hpp"
-#include "lobby.hpp"
-#include <string>
-#include <vector>
+//#include "lobby.hpp"
+//#include <string>
+//#include <vector>
 
 int main(){
     
@@ -19,7 +19,7 @@ int main(){
 
     std::cout << ""
     */
-    bk::Elevator elevator(5, 10, 15, 0);
+    bk::Elevator elevator(5, 15, 0);
 
     elevator.addTargetFloor(7);
     elevator.addTargetFloor(-3);
