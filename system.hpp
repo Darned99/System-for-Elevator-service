@@ -5,13 +5,12 @@
 namespace bk{
     class System{
         private:
-            Elevator m_elevator;
+            
             double m_id;
             
 
         public:
-            double m_current_floor;
-            double m_next_floor;
+           
 
 
         
