@@ -137,7 +137,6 @@ namespace bk{
 
     int bk::Elevator::getQueueSize() const {
         return m_requests.size();
-            std::cout << "Current buffer size is: " << std::endl;
     }
 
 
