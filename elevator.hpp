@@ -16,7 +16,7 @@ namespace bk {
             std::queue<int> m_requests; //simple fifo buffer
 
         public:
-            Elevator(int currentFloor, int maxFloor, int minFloor);
+            Elevator(int CurrentFloor, int maxFloor, int minFloor);
 
             
             // Overloaded operators
