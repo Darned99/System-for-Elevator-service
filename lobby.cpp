@@ -2,7 +2,18 @@
 #include "elevator.hpp"
 #include "lobby.hpp"
 
-int main(){
+namespace bk{
+    class System : Elevator{
+        protected:
+            int id;
 
-    return 0;
+
+        public:
+            // Constructor wip
+
+
+        
+
+
+    };
 }

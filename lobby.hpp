@@ -16,13 +16,11 @@ namespace bk{
 
         
         //Potential use for overloading operator
-        bool operator==(const Elevator& other) const {
-            return (Elevator == other.Elevator);
-        }
+        bool operator==(const Elevator& other) const;
+        bool operator!=(const Elevator& other) const;
 
-        bool operator!=(const Elevator& other) const {
-            return !(*this == other);
-        }
-
-    }
+        // Potential methods for elevator system
+        void isAbove();
+        void isBellow();
+    };
 }
