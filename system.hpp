@@ -2,8 +2,10 @@
 #include <iostream>
 #include "elevator.hpp"
 
+
+    // System WIP
 namespace bk{
-    class System{
+    class System : public Elevator{
         private:
             
             double m_id;
