@@ -3,7 +3,7 @@
 #include "elevator.hpp"
 
 namespace bk{
-    class Lobby{
+    class System{
         private:
             Elevator m_elevator;
             double m_id;
