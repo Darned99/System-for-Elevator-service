@@ -100,9 +100,9 @@ namespace bk{
 
 
     int bk::Elevator::getNextTarget(){
-        if(!m_requests.empty()) {
-            int nextFloor = m_requests.front(); 
-            m_requests.pop();
+        if(!m_requests.empty()) { 
+            int nextFloor = m_requests.front(); // It gets the first value from the queue
+            m_requests.pop(); // Delete the value from queue
             return nextFloor;
         }
         else {
@@ -115,8 +115,8 @@ namespace bk{
     /* I'll be using targets with buffer FIFO (First in first out) 
     */
     void bk::Elevator::addTargetFloor(int floor){
-        if(floor >= m_MinFloor && floor <= m_MaxFloor){
-            m_requests.push(floor);
+        if(floor >= m_MinFloor && floor <= m_MaxFloor){ 
+            m_requests.push(floor); // Add request at the end of the queue vector
             std::cout << "Added target floor: " << floor << std::endl;
         }
          else {
@@ -126,7 +126,7 @@ namespace bk{
 
     // This method process all queued floors and moves the elevator to each target
     void bk::Elevator::processRequests(){
-        while (!m_requests.empty()) {
+        while (!m_requests.empty()) { 
             int nextFloor = getNextTarget();
             moveToFloor(nextFloor);
             stop();
