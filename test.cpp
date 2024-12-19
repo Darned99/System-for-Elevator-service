@@ -2,7 +2,7 @@
 #include "elevator.hpp"
 //#include "system.hpp"
 
-//jd
+
 
 int main(){
     
@@ -38,20 +38,20 @@ int main(){
     std::cout << "Proceed to enter destination: ";
     std::cin >> TargetFloor;
     elevator.addTargetFloor(TargetFloor);       //Example 7
-    elevator.getQueueSize();
+    //elevator.getQueueSize();
     //elevator.processRequests();
     
     std::cout << "Proceed to enter destination: ";
     std::cin >> TargetFloor;
     elevator.addTargetFloor(TargetFloor);       //Example -3
-    elevator.getQueueSize();
+    //elevator.getQueueSize();
     //elevator.processRequests();
     
     
     std::cout << "Proceed to enter destination: ";
     std::cin >> TargetFloor;
     elevator.addTargetFloor(TargetFloor);       //Example 11
-    elevator.getQueueSize();
+    //elevator.getQueueSize();
     //elevator.processRequests();
     
 

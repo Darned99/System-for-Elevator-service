@@ -141,9 +141,10 @@ namespace bk{
 
 
     //Curent state
-    direction bk::Elevator::getDirection() const {
+    /*direction bk::Elevator::getDirection() const {
         return m_CurrentDirection;
     }
+    */
 
     bk::Elevator::~Elevator() {
         std::cout << "Destructor called" << std::endl;
