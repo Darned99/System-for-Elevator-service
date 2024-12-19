@@ -45,6 +45,7 @@ namespace bk {
             int getNextTarget();
             void processRequests();
 
+            int getQueueSize() const;
             direction getDirection() const;
 
             ~Elevator();

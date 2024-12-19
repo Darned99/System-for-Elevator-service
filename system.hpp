@@ -19,11 +19,11 @@ namespace bk{
         bool operator==(const Elevator& other) const;
         bool operator!=(const Elevator& other) const;
 
-        //bool operator==(const System& other) const;
-        //bool operator!=(const System& other) const;
+        bool operator==(const System& other) const;
+        bool operator!=(const System& other) const;
 
         // Potential methods for elevator system
         void isAbove();
-        void isBellow();
+        void isBelow();
     };
 }

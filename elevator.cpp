@@ -133,6 +133,14 @@ namespace bk{
         }
     }
 
+    // Size of buffer
+
+    int bk::Elevator::getQueueSize() const {
+        return m_requests.size();
+            std::cout << "Current buffer size is: " << std::endl;
+    }
+
+
     //Curent state
     direction bk::Elevator::getDirection() const {
         return m_CurrentDirection;
