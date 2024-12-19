@@ -98,19 +98,6 @@ namespace bk{
         }
     }
 
-
-    int bk::Elevator::getNextTarget(){
-        if(!m_requests.empty()) { 
-            int nextFloor = m_requests.front(); // It gets the first value from the queue
-            m_requests.pop(); // Delete the value from queue
-            return nextFloor;
-        }
-        else {
-            return m_CurrentFloor;
-        }
-    }
-
-
     //Elevator targets
     /* I'll be using targets with buffer FIFO (First in first out) 
     */
@@ -124,12 +111,24 @@ namespace bk{
          }
     }
 
+    // Getting first floor request (oldest) from the queue to move the elevator to the target floor
+    int bk::Elevator::getNextTarget(){
+        if(!m_requests.empty()) { 
+            int nextFloor = m_requests.front(); // It gets the first value from the queue
+            m_requests.pop(); // Delete the value from queue
+            return nextFloor;
+        }
+        else {
+            return m_CurrentFloor;
+        }
+    }
+
     // This method process all queued floors and moves the elevator to each target
     void bk::Elevator::processRequests(){
         while (!m_requests.empty()) { 
             int nextFloor = getNextTarget();
             moveToFloor(nextFloor);
-            stop();
+            stop(); 
         }
     }
 
