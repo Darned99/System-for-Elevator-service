@@ -2,7 +2,7 @@
 #include <iostream>
 #include <queue>
 
-// Could be simpler, however class give us better encapsulation
+
 enum direction {up, down, idle}; //idle non operating in that moment
 
 namespace bk {
