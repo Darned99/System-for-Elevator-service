@@ -3,7 +3,7 @@
 #include <queue>
 
 // Could be simpler, however class give us better encapsulation
-enum class direction {up, down, idle}; //idle non operating in that moment
+enum direction {up, down, idle}; //idle non operating in that moment
 
 namespace bk {
     class Elevator {
