@@ -1,30 +1,36 @@
 #pragma once
+
 #include <iostream>
-#include "elevator.hpp"
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <limits>
 
 
-    // System WIP
-namespace bk{
-    class System : public Elevator{
-        private:
-            
-            double m_id;
-            
+namespace bk {
+
+    class System {
+        protected:
+            std::vector<Elevator> elevators; 
+            void LinePrint(int length, int counter) const;
+            Elevator m_CurrentFloor; 
 
         public:
-           
+            System(int numElevators, int maxFloors);
 
+            void performNextStep();
+            void elevatorStatus() const;
+            //void addElevator(const Elevator& elevator);
 
+            //int handleHallCall(int pickupFloor, direction dir);
+            int corridor_buttom_push(int pickupFloor, direction dir);
         
-        //Potential use for overloading operator
-        bool operator==(const Elevator& other) const;
-        bool operator!=(const Elevator& other) const;
+            //bool isBelow(const Elevator& elevator, int floor);
+            //bool isAbove(const Elevator& elevator, int floor);
 
-        bool operator==(const System& other) const;
-        bool operator!=(const System& other) const;
-
-        // Potential methods for elevator system
-        void isAbove();
-        void isBelow();
+      
+            //Elevator& getElevator(int index);  
+            //const Elevator& getElevator(int index) const;  
     };
 }
+
