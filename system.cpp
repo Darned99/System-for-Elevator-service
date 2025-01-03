@@ -54,7 +54,10 @@ namespace bk{
     }
     */
 
-
+   /**
+    * Just asthetic function later used in elevatorStatus method
+    * 
+    */
     void bk::System::LinePrint(int length, int counter) const {
         std::cout << "\n";
         for (int i = 0; i < length; i++) {
@@ -63,6 +66,14 @@ namespace bk{
         std::cout << " [counter: " << counter << "]" << std::endl; 
     }
 
+
+
+    /**
+     * It displays a status of elevator that contains:
+     *  - direction
+     *  - next target
+     *  - floors in queue
+     */
     void bk::System::elevatorStatus() const {
         static int counter = 0;
 
@@ -97,20 +108,29 @@ namespace bk{
         bk::System::LinePrint(100, counter++);
     }
 
-    
+    /**
+     *  It performs next step
+     * 
+     */
     void bk::System::performNextStep() {
         for (auto &elevator : elevators) { 
             elevator.moveToFloor();
         }
     }
 
-
+    /**
+     * Getter for elevator ID
+     */
     Elevator& bk::System::getElevator(int elevatorID) {
         return elevators[elevatorID];
     }
 
 
     // Przepatrzeć te funkcje 
+    /**
+     * It handles calls from the corridor
+     * 
+     */
     int bk::System::handleHallCall(int pickupFloor, direction dir) {
         int bestElevator = -1;
         int minDistance = -1; 
