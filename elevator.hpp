@@ -16,31 +16,37 @@ namespace bk {
             std::vector<int> buffer;
 
         public:
+            /**
+             * Parametric contructor
+             */
             Elevator(int CurrentFloor = 0, int maxFloor = 0, int minFloor = 0);
             
-            // Overloaded operators
+            /**
+             * Overloaded operators
+             */
             bool operator==(const Elevator& other) const;
             bool operator!=(const Elevator& other) const;
             
-
-            // Getters
+            /**
+             * Getters
+             */
             int getCurrentFloor() const;
-            int getNextTarget() const;
             direction getDirection() const;
-
-            // Funtions responsible for movement
-            void MoveUp();
-            void MoveDown();
-            void stop();
-            void MoveToFloor();
-
-            void addTargetFloor(int floor);
-            void handlePassengerRequest();
-
-
-
             std::vector<int> getBuffer() const;
-           
-            //~Elevator();
+            int getNextTarget() const;
+
+            /**
+             * Methods responsible for movement 
+             */
+            void moveUp();
+            void moveDown();
+            void stop();
+            void moveToFloor();
+
+
+            /**
+             * Handling request
+             */
+            void addTargetFloor(int floor);
     };
 }

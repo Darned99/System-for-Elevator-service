@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <limits>
 
 #include "elevator.hpp"
 #include "system.hpp"
@@ -61,7 +60,7 @@ namespace bk{
         for (int i = 0; i < length; i++) {
             std::cout << "=";
         }
-        std::cout << " [counter: " << counter << "]\n"; 
+        std::cout << " [counter: " << counter << "]" << std::endl; 
     }
 
     void bk::System::elevatorStatus() const {
@@ -71,7 +70,7 @@ namespace bk{
 
         for (int i = 0; i < elevators.size(); ++i) {
             const Elevator& elevator = elevators[i];
-            std::cout << "Elevator " << i << ":\n";
+            std::cout << "Elevator " << i << ":" << std::endl;
 
             std::string dir;
             if (elevator.getDirection() == direction::up) {
@@ -87,7 +86,7 @@ namespace bk{
             std::cout << "\tCurrent floor: " << elevator.getCurrentFloor() 
                     << " || Direction: " << dir 
                     << " || Next Target: " << elevator.getNextTarget()
-                    << " || Florrs in queue: ";
+                    << " || Floors in queue: ";
 
             for (const int floor : elevator.getBuffer()) { 
                 std::cout << floor << " ";
@@ -101,24 +100,18 @@ namespace bk{
     
     void bk::System::performNextStep() {
         for (auto &elevator : elevators) { 
-            elevator.MoveToFloor();
+            elevator.moveToFloor();
         }
     }
-    
-    /*
-    void bk::System::performNextStep() {
-        for (auto &elevator : elevators) {
-            if (elevator.getDirection() == direction::idle &&
-                !elevator.getBuffer().empty()) {
-                elevator.handlePassengerRequest();
-            }
-            elevator.MoveToFloor();
-        }
+
+
+    Elevator& bk::System::getElevator(int elevatorID) {
+        return elevators[elevatorID];
     }
-    */
+
 
     // Przepatrzeć te funkcje 
-    int bk::System::corridor_buttom_push(int pickupFloor, direction dir) {
+    int bk::System::handleHallCall(int pickupFloor, direction dir) {
         int bestElevator = -1;
         int minDistance = -1; 
 

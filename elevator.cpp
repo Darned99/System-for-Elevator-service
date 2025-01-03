@@ -17,14 +17,12 @@ namespace bk{
         m_MaxFloor(MaxFloor),
         m_MinFloor(MinFloor) {
         
-        std::cout << "Constructor: " 
-            << "Current floor: " << CurrentFloor 
-            << " Max Floor: " << MaxFloor 
-            << " Min Floor: " << MinFloor << std::endl;
     };
     
-    
-    // Overloaded operators
+
+    /**
+     * Overloaded operators
+     */
     bool bk::Elevator::operator==(const bk::Elevator& other) const {
         return (m_CurrentFloor == other.m_CurrentFloor &&
         m_MaxFloor == other.m_MaxFloor &&
@@ -35,9 +33,10 @@ namespace bk{
         return !(*this == other);
     }
     
-
-    // Getters to possible implementation for data validation
-    
+    /**
+     * Getters
+     * 
+     */
     int bk::Elevator::getCurrentFloor() const {
         return m_CurrentFloor;
     }
@@ -60,7 +59,13 @@ namespace bk{
     }
 
     
-    void bk::Elevator::MoveUp() {
+
+    /**
+     * Methods for movement
+     * 
+     * 
+     */
+    void bk::Elevator::moveUp() {
         m_CurrentFloor++;
         std::cout << "Moving up to floor: " << m_CurrentFloor << std::endl;
 
@@ -75,7 +80,7 @@ namespace bk{
         }
     }
 
-    void bk::Elevator::MoveDown() {
+    void bk::Elevator::moveDown() {
         m_CurrentFloor--;
         std::cout << "Moving down to floor: " << m_CurrentFloor << std::endl;
 
@@ -90,14 +95,13 @@ namespace bk{
         }
     }
 
-
     void bk::Elevator::stop(){
             m_CurrentDirection = direction::idle;
             std::cout << "Elevator stopped at floor: " << m_CurrentFloor << std::endl;
     }
 
 
-    void bk::Elevator::MoveToFloor() {
+    void bk::Elevator::moveToFloor() {
         if (buffer.empty()) {
             std::cout << "No requests in buffer, elevator idle." << std::endl;
             m_CurrentDirection = direction::idle;
@@ -112,19 +116,22 @@ namespace bk{
         if (!buffer.empty()) {
             if (buffer.front() > m_CurrentFloor) {
                 m_CurrentDirection = direction::up;
-                MoveUp();
+                moveUp();
             }
             else if (buffer.front() < m_CurrentFloor) {
                 m_CurrentDirection = direction::down;
-                MoveDown();
+                moveDown();
             }
             else {
                 stop();
             }
         }
     }
-
-
+    
+    /**
+     * Handling requests
+     * 
+     */
     void bk::Elevator::addTargetFloor(int floor) {
         if (floor < m_MinFloor || floor > m_MaxFloor) {
             
@@ -137,32 +144,11 @@ namespace bk{
             buffer.push_back(floor);
             std::cout << "Added target floor: " << floor << std::endl;
 
-            if (m_CurrentDirection == direction::up) {
+            if (m_CurrentDirection == direction::up || m_CurrentDirection == direction::idle) {
                 std::sort(buffer.begin(), buffer.end());
             } 
             else if (m_CurrentDirection == direction::down) {
                 std::sort(buffer.rbegin(), buffer.rend());
-            }
-        }
-    }
-
-    void bk::Elevator::handlePassengerRequest() {
-        if (m_CurrentDirection == direction::idle) {
-            std::cout << "Enter target floor (or -1 to cancel): ";
-            int targetFloor;
-            std::cin >> targetFloor;
-
-            if (targetFloor == -1) {
-                std::cout << "Request canceled.\n";
-                return;
-            }
-
-            if (targetFloor < m_MinFloor || targetFloor > m_MaxFloor) {
-                std::cout << "Invalid floor. Please try again.\n";
-            }
-            else {
-                addTargetFloor(targetFloor);
-                std::cout << "Target floor " << targetFloor << " added to queue.\n";
             }
         }
     }

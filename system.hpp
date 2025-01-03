@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <limits>
 
 
 namespace bk {
@@ -16,15 +15,35 @@ namespace bk {
             Elevator m_CurrentFloor; 
 
         public:
+            /**
+             * Parametric constructor
+             * 
+             */
             System(int numElevators, int maxFloors);
 
+            /**
+             * Next step
+             * 
+             */
             void performNextStep();
-            void elevatorStatus() const;
-            //void addElevator(const Elevator& elevator);
 
-            //int handleHallCall(int pickupFloor, direction dir);
-            int corridor_buttom_push(int pickupFloor, direction dir);
-        
+            /**
+             * Displays current elevators status
+             * 
+             */
+            void elevatorStatus() const;
+
+            /**
+             * Method that handles calls from the corridor
+             * 
+             */
+            int handleHallCall(int pickupFloor, direction dir);
+
+            /**
+             * Getter for elevator id
+             */
+            Elevator& getElevator(int elevatorID);
+
             //bool isBelow(const Elevator& elevator, int floor);
             //bool isAbove(const Elevator& elevator, int floor);
 
