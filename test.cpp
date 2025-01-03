@@ -3,18 +3,15 @@
 #include "system.hpp"
 
 int main() {
+
     int numElevators;
     int maxFloors;
 
-    // Konfiguracja symulacji
-    //std::cout << "Set up program: " << std::endl;
-    //std::cout << "Enter the number of floors in the building: ";
-    //std::cin >> maxFloors;
-    //std::
-
     std::cout << "\nSet up program: " << std::endl;
+    
     std::cout << "\nEnter the number of floors in the building: ";
     std::cin >> maxFloors;
+    
     std::cout << "\nEnter the number of elevators in the building: ";
     std::cin >> numElevators;
 
