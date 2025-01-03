@@ -33,7 +33,10 @@ namespace bk {
             void MoveDown();
             void stop();
             void MoveToFloor();
-            void addTargetFloor(int floor);   
+
+            void addTargetFloor(int floor);
+            void handlePassengerRequest();
+
 
 
             std::vector<int> getBuffer() const;

@@ -32,6 +32,7 @@ int main() {
 
             std::cout << "Enter the floor to call from (0-" << maxFloors - 1 << "): ";
             std::cin >> floor;
+
             if (floor < 0 || floor >= maxFloors) {
                 std::cout << "Invalid floor. Please try again.\n";
                 continue;
@@ -39,14 +40,22 @@ int main() {
 
             std::cout << "Enter the direction (1 for up, 2 for down): ";
             std::cin >> dirChoice;
+
             if (dirChoice != 1 && dirChoice != 2) {
                 std::cout << "Invalid direction. Please try again.\n";
                 continue;
             }
-
-            bk::direction dir = (dirChoice == 1) ? bk::direction::up : bk::direction::down;
+            
+            bk::direction dir;
+            if (dirChoice == 1) {
+                dir = bk::direction::up;
+            }
+            else {
+                dir = bk::direction::down;
+            }
 
             int bestElevator = elevatorSystem.corridor_buttom_push(floor, dir);
+            
             if (bestElevator != -1) {
                 std::cout << "Call assigned to elevator " << bestElevator << ".\n";
             } else {

@@ -146,5 +146,26 @@ namespace bk{
         }
     }
 
+    void bk::Elevator::handlePassengerRequest() {
+        if (m_CurrentDirection == direction::idle) {
+            std::cout << "Enter target floor (or -1 to cancel): ";
+            int targetFloor;
+            std::cin >> targetFloor;
+
+            if (targetFloor == -1) {
+                std::cout << "Request canceled.\n";
+                return;
+            }
+
+            if (targetFloor < m_MinFloor || targetFloor > m_MaxFloor) {
+                std::cout << "Invalid floor. Please try again.\n";
+            }
+            else {
+                addTargetFloor(targetFloor);
+                std::cout << "Target floor " << targetFloor << " added to queue.\n";
+            }
+        }
+    }
+
 };
 

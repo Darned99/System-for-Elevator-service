@@ -98,13 +98,24 @@ namespace bk{
         bk::System::LinePrint(100, counter++);
     }
 
-
-
+    
     void bk::System::performNextStep() {
         for (auto &elevator : elevators) { 
             elevator.MoveToFloor();
         }
     }
+    
+    /*
+    void bk::System::performNextStep() {
+        for (auto &elevator : elevators) {
+            if (elevator.getDirection() == direction::idle &&
+                !elevator.getBuffer().empty()) {
+                elevator.handlePassengerRequest();
+            }
+            elevator.MoveToFloor();
+        }
+    }
+    */
 
     // Przepatrzeć te funkcje 
     int bk::System::corridor_buttom_push(int pickupFloor, direction dir) {
