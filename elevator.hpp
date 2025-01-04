@@ -3,6 +3,10 @@
 #include <iostream>
 #include <vector>
 
+#define current_Floor 0
+#define max_Floor 30
+#define min_Floor 0 
+
 namespace bk {
 
     enum class direction {up, down, idle};
@@ -19,7 +23,7 @@ namespace bk {
             /**
              * Parametric contructor
              */
-            Elevator(int CurrentFloor = 0, int maxFloor = 0, int minFloor = 0);
+            Elevator(int CurrentFloor = current_Floor, int MaxFloor = max_Floor, int MinFloor = min_Floor);
             
             /**
              * Overloaded operators
@@ -46,6 +50,7 @@ namespace bk {
 
             /**
              * Handling request
+             * 
              */
             void addTargetFloor(int floor);
     };
