@@ -22,6 +22,7 @@ namespace bk{
 
     /**
      * Overloaded operators
+     * 
      */
     bool bk::Elevator::operator==(const bk::Elevator& other) const {
         return (m_CurrentFloor == other.m_CurrentFloor &&

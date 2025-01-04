@@ -38,6 +38,7 @@ namespace bk{
 
     /**
      * It displays a status of elevator that contains:
+     *  - current floor
      *  - direction
      *  - next target
      *  - floors in queue
@@ -129,5 +130,5 @@ namespace bk{
         }
         return bestElevator;
     }
-    
+
 };
