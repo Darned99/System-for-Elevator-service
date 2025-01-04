@@ -22,6 +22,11 @@ namespace bk {
             System(int numElevators, int maxFloors);
 
             /**
+             * Getter for elevator id
+             */
+            Elevator& getElevator(int elevatorID);
+
+            /**
              * Next step
              * 
              */
@@ -34,22 +39,23 @@ namespace bk {
             void elevatorStatus() const;
 
             /**
-             * Method that handles calls from the corridor
+             * Checks whether the elevator can handle a given call
+             * 
+             */
+            bool canElevatorServeRequest(const Elevator& elevator, direction dir);
+
+            /**
+             * Finds the best elevator that can handle the call
+             * 
+             */
+            int findBestElevator(int pickupFloor, direction dir);
+
+            /**
+             * It handles the calls from the corridor
              * 
              */
             int handleHallCall(int pickupFloor, direction dir);
-
-            /**
-             * Getter for elevator id
-             */
-            Elevator& getElevator(int elevatorID);
-
-            //bool isBelow(const Elevator& elevator, int floor);
-            //bool isAbove(const Elevator& elevator, int floor);
-
-      
-            //Elevator& getElevator(int index);  
-            //const Elevator& getElevator(int index) const;  
+            
     };
 }
 
