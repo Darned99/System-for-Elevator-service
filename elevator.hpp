@@ -3,9 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#define current_Floor 0
-#define max_Floor 30
-#define min_Floor 0 
+
 
 namespace bk {
 
@@ -23,7 +21,7 @@ namespace bk {
             /**
              * Parametric contructor
              */
-            Elevator(int CurrentFloor = current_Floor, int MaxFloor = max_Floor, int MinFloor = min_Floor);
+            Elevator(int CurrentFloor = 0, int MaxFloor = 0, int MinFloor = 0);
             
             /**
              * Overloaded operators
