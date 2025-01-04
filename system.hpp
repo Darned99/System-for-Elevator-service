@@ -14,7 +14,7 @@ namespace bk {
      */
     class System {
         protected:
-            /**< A vector of elevators to be managed by the system */
+            /** A vector of elevators to be managed by the system */
             std::vector<Elevator> elevators; 
             //Elevator m_CurrentFloor; 
 

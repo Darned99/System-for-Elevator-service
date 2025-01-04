@@ -19,15 +19,15 @@ namespace bk {
      */
     class Elevator {
         protected:
-            /**< Current floor of the elevator */
+            /** Current floor of the elevator */
             int m_CurrentFloor;
-            /**< Maximum floor of the elevator can reach */
+            /** Maximum floor of the elevator can reach */
             int m_MaxFloor;
-            /**< Minimum floor of the elevator can reach */
+            /** Minimum floor of the elevator can reach */
             int m_MinFloor;
-            /**< Current direction of the elevator */
+            /** Current direction of the elevator */
             direction m_CurrentDirection;
-            /**< Buffer holding target floors */
+            /** Buffer holding target floors */
             std::vector<int> buffer;
 
         public:
