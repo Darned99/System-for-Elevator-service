@@ -11,6 +11,7 @@ int main() {
     
     std::cout << "\nEnter the number of floors in the building: ";
     std::cin >> maxFloors;
+    maxFloors += 1;
     
     std::cout << "\nEnter the number of elevators in the building: ";
     std::cin >> numElevators;
