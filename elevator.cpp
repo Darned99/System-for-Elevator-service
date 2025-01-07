@@ -75,10 +75,6 @@ namespace bk{
             buffer.erase(it);
             std::cout << "Stopping at floor: " << m_CurrentFloor << std::endl;
         }
-
-        if (!buffer.empty() && buffer.front() > m_CurrentFloor) {
-            m_CurrentDirection = direction::up;
-        }
     }
 
     void bk::Elevator::moveDown() {
@@ -89,10 +85,6 @@ namespace bk{
         if (it != buffer.end()) {
             buffer.erase(it);
             std::cout << "Stopping at floor: " << m_CurrentFloor << std::endl;
-        }
-
-        if (!buffer.empty() && buffer.front() < m_CurrentFloor) {
-            m_CurrentDirection = direction::down;
         }
     }
 
