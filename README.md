@@ -3,10 +3,10 @@
 Project conduct basic class of elevator and bigger class of system for elevator with proper logic.
 
 ## Features 
-- **Elevator Management**: Individual elevators can move up, move down, and handle floor requests.
+- **Elevator anagement**: Individual elevators can move up, move down, and handle floor requests.
 - **System coordination**: Assigns the best elevator to handle hall calls based on distance.
-- **Buffer Management**: Maintains a queue of target floors for each elevator
-- **Dynamic Status Reporting**: Provides detailed information about each elevator's status, including current floor, direction, next target, and queued floors.
+- **Buffer anagement**: Maintains a queue of target floors for each elevator
+- **Displaying current status of elevators**: Provides detailed information about each elevator's status, including current floor, direction, next target, and queued floors.
 
 ## Classes
 
