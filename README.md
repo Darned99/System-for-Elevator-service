@@ -39,7 +39,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 - **`elevatorStatus()`**: Displays the status of all elevators in the system.
 - **`performNextStep()`**: Executes the next movement step for all elevators.
 - **`canElevatorServeRequest(Elevator& elevator, direction dir)`**: Checks if an elevator can handle a request based on its direction.
-- **`findBestElevator(int pickupFloor, direction dir)`**: Finds the most suitable elevator for a hall call based on proximity and direction.
+- **`findBestElevator(int pickupFloor, direction dir)`**: Finds the most suitable elevator for a hall call based on distance and direction.
 - **`handleHallCall(int pickupFloor, direction dir)`**: Processes a hall call and assigns it to the best elevator.
 
 ## Requirements
