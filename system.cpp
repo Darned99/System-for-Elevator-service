@@ -62,7 +62,7 @@ namespace bk{
             else {
                 dir = "Idle";
             }
-
+            
             std::cout << "\tCurrent floor: " << elevator.getCurrentFloor() 
                     << " || Direction: " << dir 
                     << " || Next Target: " << elevator.getNextTarget()
