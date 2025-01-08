@@ -25,10 +25,29 @@ namespace bk {
      * @brief Manages a group of elevators and coordinates their movement
      */
     class System {
-        protected:
+        private:
             /** A vector of elevators to be managed by the system */
             std::vector<Elevator> elevators; 
             //Elevator m_CurrentFloor; 
+
+            /**
+             * @brief Prints a asthetic line with a counter
+             * @param length Length of the line
+             * @param counter Counter value to display
+             */
+            void LinePrint(int length, int counter) const; 
+
+            
+
+            /**
+             * Finds the best elevator that can handle the call
+             * @brief Finds the best elevator to handle a given call
+             * @param pickupFloor The floor where the call is from
+             * @param dir The direction of the requested elevator movement
+             * @return ID of the best elevator, or -1 if no suitable elevator is found
+             */
+            int findBestElevator(int pickupFloor, direction dir); // też może być prywatne tu może być że winda nie przyjmie użytkownika calla nie dostanie czegos do bufora
+
 
         public:
             /**
@@ -37,7 +56,7 @@ namespace bk {
              * @param numElevators Number of elevator in the system
              * @param maxFloors Maximum number of floors the elevators can service
              */
-            System(int numElevators, int maxFloors);
+            System(int numElevators, int maxFloors);  // walidacje dodać
 
             /**
              * Getter for elevator id
@@ -47,12 +66,6 @@ namespace bk {
              */
             Elevator& getElevator(int elevatorID);
 
-            /**
-             * @brief Prints a asthetic line with a counter
-             * @param length Length of the line
-             * @param counter Counter value to display
-             */
-            void LinePrint(int length, int counter) const;
 
             /**
              * Displays current elevators status
@@ -64,31 +77,13 @@ namespace bk {
              * - Next target floor
              * - Floors in the request buffer
              */
-            void elevatorStatus() const;
+            void elevatorStatus() const;  //direction to string  też może być w elevator 
 
             /**
              * Next step
              * @brief Performs the next step for all elevators in the system
              */
             void performNextStep();
-
-            /**
-             * Checks whether the elevator can handle a given call
-             * @brief Determines if an elevator can handle a given request
-             * @param elevator The elevator to check
-             * @param dir Direction of the request
-             * @return true if the elevator can handle the request, if not it returns false
-             */
-            bool canElevatorServeRequest(const Elevator& elevator, direction dir);
-
-            /**
-             * Finds the best elevator that can handle the call
-             * @brief Finds the best elevator to handle a given call
-             * @param pickupFloor The floor where the call is from
-             * @param dir The direction of the requested elevator movement
-             * @return ID of the best elevator, or -1 if no suitable elevator is found
-             */
-            int findBestElevator(int pickupFloor, direction dir);
 
             /**
              * It handles the calls from the corridor

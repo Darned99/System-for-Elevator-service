@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <vector>
-
+#include <string>
 
 
 namespace bk {
@@ -30,26 +30,52 @@ namespace bk {
      * @brief Represents an elevator
      */
     class Elevator {
-        protected:
+        private: // tu zwrocic uwage 
             /** Current floor of the elevator */
-            int m_CurrentFloor;
+            int m_currentFloor;
             /** Maximum floor of the elevator can reach */
-            int m_MaxFloor;
+            int m_maxFloor;
             /** Minimum floor of the elevator can reach */
-            int m_MinFloor;
+            int m_minFloor;
             /** Current direction of the elevator */
-            direction m_CurrentDirection;
+            direction m_currentDirection;
             /** Buffer holding target floors */
-            std::vector<int> buffer;
+            std::vector<int> m_buffer;
+
+            /**
+             * Methods responsible for movement 
+             */
+
+            /**
+             * @brief Moves the elevator up by one floor
+             */
+            void moveUp(); // moga byc prywatne powinny byc 
+
+            /**
+             * @brief Moves the elevator up by one floor
+             */
+            void moveDown();
+
+            /**
+             * @brief The elevator is idle
+             */
+            void stop();
+
+            /**
+             * Direction to string
+             * @brief Transform direction enum into string
+             * @param dir 
+             */
+            std::string directionToString(direction dir) const;
 
         public:
             /**
              * @brief Parametric constructor of elevator
-             * @param CurrentFloor - initial floor of the elevator
-             * @param MaxFloor - maximum floor in the building that elevator can reach
-             * @param MinFloor - minimum floor in the building that elevator can reach
+             * @param currentFloor - initial floor of the elevator
+             * @param maxFloor - maximum floor in the building that elevator can reach
+             * @param minFloor - minimum floor in the building that elevator can reach
              */
-            Elevator(int CurrentFloor = 0, int MaxFloor = 0, int MinFloor = 0);
+            Elevator(int currentFloor = 0, int maxFloor = 0, int minFloor = 0);  // małe litery
             
             /**
              * Overloaded operators
@@ -97,35 +123,37 @@ namespace bk {
 
 
             /**
-             * Methods responsible for movement 
-             */
-
-            /**
-             * @brief Moves the elevator up by one floor
-             */
-            void moveUp();
-
-            /**
-             * @brief Moves the elevator up by one floor
-             */
-            void moveDown();
-
-            /**
-             * @brief The elevator is idle
-             */
-            void stop();
-
-            /**
              * @brief Moves the elevator to the next target floor
              */
             void moveToFloor();
-
 
             /**
              * Handling request
              * @brief Adds a target floor to the buffer
              * @param floor Added floor to the buffer
              */
-            void addTargetFloor(int floor);
+            void addTargetFloor(int floor); //kod błędu powinien zwracac
+
+            /**
+             * Checks whether the elevator can handle a given call
+             * @brief Determines if an elevator can handle a given request
+             * @param elevator The elevator to check
+             * @param dir Direction of the request
+             * @return true if the elevator can handle the request, if not it returns false
+             */
+            bool canElevatorServeRequest(direction dir) const;  // W elevator
+
+            /**
+             * Displays current elevators status
+             * @brief Displays the current status of all elevators
+             * @param id Displays id of each elevator
+             * The status includes:
+             * - Current floor 
+             * - Current direction
+             * - Next target floor
+             * - Floors in the request buffer
+             */
+            void displayStatus(int id) const;
+
     };
 }

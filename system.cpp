@@ -55,39 +55,19 @@ namespace bk{
      *  - next target
      *  - floors in queue
      */
+
     void bk::System::elevatorStatus() const {
         static int counter = 0;
 
         bk::System::LinePrint(100, counter++);
 
         for (int i = 0; i < elevators.size(); ++i) {
-            const Elevator& elevator = elevators[i];
-            std::cout << "Elevator " << i << ":" << std::endl;
-
-            std::string dir;
-            if (elevator.getDirection() == direction::up) {
-                dir = "Up";
-            }
-            else if (elevator.getDirection() == direction::down) {
-                dir = "Down";
-            }
-            else {
-                dir = "Idle";
-            }
-
-            std::cout << "\tCurrent floor: " << elevator.getCurrentFloor() 
-                    << " || Direction: " << dir 
-                    << " || Next Target: " << elevator.getNextTarget()
-                    << " || Floors in queue: ";
-
-            for (const int floor : elevator.getBuffer()) { 
-                std::cout << floor << " ";
-            }
-            std::cout << "\n";
+            elevators[i].displayStatus(i);
         }
 
         bk::System::LinePrint(100, counter++);
     }
+
 
     /**
      *  It performs next step
@@ -99,16 +79,7 @@ namespace bk{
         }
     }
 
-    /**
-     * Checks whether the elevator can handle a given call
-     * 
-     */
-    bool bk::System::canElevatorServeRequest(const Elevator& elevator, direction dir) {
-        return ((dir == direction::up && elevator.getDirection() != direction::down) ||
-                (dir == direction::down && elevator.getDirection() != direction::up) ||
-                elevator.getDirection() == direction::idle);
-    }
-
+    
     /**
      * Finds the best elevator that can handle the call
      * 
@@ -121,7 +92,7 @@ namespace bk{
             const Elevator& elevator = elevators[i];
             int distance = std::abs(elevator.getCurrentFloor() - pickupFloor);
         
-            if (canElevatorServeRequest(elevator, dir)) {
+            if (elevator.canElevatorServeRequest(dir)) {
                 if (minDistance == -1 || distance < minDistance) {
                     minDistance = distance;
                     bestElevator = i;
