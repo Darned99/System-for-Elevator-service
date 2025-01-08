@@ -3,10 +3,10 @@
 Project conduct basic class of elevator and bigger class of system for elevator with proper logic.
 
 ## Features 
-- **Elevator management**: Individual elevators can move up, move down, and handle floor requests.
+- **Elevator management**: Each elevator can move up, move down, and handle floor requests.
 - **System coordination**: Assigns the best elevator to handle hall calls based on distance.
 - **Buffer anagement**: Maintains a queue of target floors for each elevator
-- **Displaying current status of elevators**: Provides detailed information about each elevator's status, including current floor, direction, next target, and queued floors.
+- **Displaying current status of elevators**: Provides information about each elevator's status, including current floor, direction, next target, and queued floors.
 
 ## Classes
 
@@ -14,7 +14,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 
 #### Constructor
 - **`Elevator(int CurrentFloor, int MaxFloor, int MinFloor)`**:
-    Initializes an elevator object with the specified current floor, maximum floor and minimum floor.
+    Initializes an elevator object with the current floor, maximum floor and minimum floor.
 
 #### Methods
 - **`getCurrentFloor()`**: Returns the current floor of the elevator.
@@ -32,7 +32,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 
 #### Constructor
 - **`System(int numElevators, int maxFloors)`**:
-  Initializes a system with the specified number of elevators and maximum floors in the building.
+  Initializes a system with the number of elevators and maximum floors in the building.
 
 #### Methods
 - **`getElevator(int elevatorID)`**: Returns a reference to the specified elevator by its ID.
