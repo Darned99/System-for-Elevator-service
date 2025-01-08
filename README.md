@@ -7,7 +7,7 @@ Project conduct basic class of elevator and bigger class of lobby / whole system
 
 ## Classes
 
-### 'Elevator'
+### `Elevator`
 
 #### Constructor
 - **`Elevator(int CurrentFloor, int MaxFloor, int MinFloor)`**:
@@ -25,7 +25,7 @@ Project conduct basic class of elevator and bigger class of lobby / whole system
 - **`addTargetFloor(int floor)`**: Adds a floor to the target queue if valid and not already present.
 
 
-### 'System'
+### `System`
 
 #### Constructor
 - **`System(int numElevators, int maxFloors)`**:
