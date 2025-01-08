@@ -46,7 +46,7 @@ namespace bk {
              * @param dir The direction of the requested elevator movement
              * @return ID of the best elevator, or -1 if no suitable elevator is found
              */
-            int findBestElevator(int pickupFloor, direction dir); // też może być prywatne tu może być że winda nie przyjmie użytkownika calla nie dostanie czegos do bufora
+            int findBestElevator(int pickupFloor, direction dir); // tu może być że winda nie przyjmie użytkownika calla nie dostanie czegos do bufora
 
 
         public:
@@ -77,7 +77,7 @@ namespace bk {
              * - Next target floor
              * - Floors in the request buffer
              */
-            void elevatorStatus() const;  //direction to string  też może być w elevator 
+            void elevatorStatus() const;   
 
             /**
              * Next step

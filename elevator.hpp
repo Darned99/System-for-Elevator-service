@@ -26,11 +26,18 @@ namespace bk {
     enum class direction {up, down, idle};
 
     /**
+     * 
+     * 
+     */
+    //enum class AddTargetResult {Success, InvalidFloor, DuplicateFloor};
+
+
+    /**
      * @class Elevator
      * @brief Represents an elevator
      */
     class Elevator {
-        private: // tu zwrocic uwage 
+        private: 
             /** Current floor of the elevator */
             int m_currentFloor;
             /** Maximum floor of the elevator can reach */
