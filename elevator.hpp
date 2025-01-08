@@ -49,7 +49,7 @@ namespace bk {
             /**
              * @brief Moves the elevator up by one floor
              */
-            void moveUp(); // moga byc prywatne powinny byc 
+            void moveUp(); 
 
             /**
              * @brief Moves the elevator up by one floor
@@ -63,7 +63,7 @@ namespace bk {
 
             /**
              * Direction to string
-             * @brief Transform direction enum into string
+             * @brief Convert direction enum into string
              * @param dir 
              */
             std::string directionToString(direction dir) const;
@@ -75,7 +75,7 @@ namespace bk {
              * @param maxFloor - maximum floor in the building that elevator can reach
              * @param minFloor - minimum floor in the building that elevator can reach
              */
-            Elevator(int currentFloor = 0, int maxFloor = 0, int minFloor = 0);  // małe litery
+            Elevator(int currentFloor = 0, int maxFloor = 0, int minFloor = 0);  
             
             /**
              * Overloaded operators
@@ -121,28 +121,6 @@ namespace bk {
              */
             int getNextTarget() const;
 
-
-            /**
-             * @brief Moves the elevator to the next target floor
-             */
-            void moveToFloor();
-
-            /**
-             * Handling request
-             * @brief Adds a target floor to the buffer
-             * @param floor Added floor to the buffer
-             */
-            void addTargetFloor(int floor); //kod błędu powinien zwracac
-
-            /**
-             * Checks whether the elevator can handle a given call
-             * @brief Determines if an elevator can handle a given request
-             * @param elevator The elevator to check
-             * @param dir Direction of the request
-             * @return true if the elevator can handle the request, if not it returns false
-             */
-            bool canElevatorServeRequest(direction dir) const;  // W elevator
-
             /**
              * Displays current elevators status
              * @brief Displays the current status of all elevators
@@ -154,6 +132,27 @@ namespace bk {
              * - Floors in the request buffer
              */
             void displayStatus(int id) const;
+
+            /**
+             * @brief Moves the elevator to the next target floor
+             */
+            void moveToFloor();
+
+            /**
+             * Handling request
+             * @brief Adds a target floor to the buffer
+             * @param floor Added floor to the buffer
+             */
+            void addTargetFloor(int floor); //kod błędu powinien zwracac 
+
+            /**
+             * Checks whether the elevator can handle a given call
+             * @brief Determines if an elevator can handle a given request
+             * @param elevator The elevator to check
+             * @param dir Direction of the request
+             * @return true if the elevator can handle the request, if not it returns false
+             */
+            bool canElevatorServeRequest(direction dir) const;  
 
     };
 }

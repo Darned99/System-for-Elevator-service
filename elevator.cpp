@@ -67,6 +67,11 @@ namespace bk{
         }
     }
 
+
+    /**
+     * Convert enum into string
+     * 
+     */
     std::string bk::Elevator::directionToString(direction dir) const {
         switch (dir) {
             case direction::up:
@@ -80,7 +85,24 @@ namespace bk{
         }
     }
 
+    /**
+     * Displaying status of elevator
+     */
+    void bk::Elevator::displayStatus(int id) const {
+        
+        std::cout << "Elevator " << id << ":" << std::endl;
+        std::cout << "\tCurrent floor: " << getCurrentFloor() 
+                    << " || Direction: " << directionToString(getDirection())
+                    << " || Next Target: " << getNextTarget()
+                    << " || Floors in queue: ";
 
+        for (const int floor : getBuffer()) { 
+                std::cout << floor << " ";
+        }
+
+        std::cout << "\n";
+
+    }
 
     /**
      * Methods for movement
@@ -176,26 +198,6 @@ namespace bk{
                 (dir == direction::down && getDirection() != direction::up) ||
                 getDirection() == direction::idle);
     }
-
-    /**
-     * Displaying status of elevator
-     */
-    void bk::Elevator::displayStatus(int id) const {
-        
-        std::cout << "Elevator " << id << ":" << std::endl;
-        std::cout << "\tCurrent floor: " << getCurrentFloor() 
-                    << " || Direction: " << directionToString(getDirection())
-                    << " || Next Target: " << getNextTarget()
-                    << " || Floors in queue: ";
-
-        for (const int floor : getBuffer()) { 
-                std::cout << floor << " ";
-        }
-
-        std::cout << "\n";
-
-    }
-
-
+    
 };
 

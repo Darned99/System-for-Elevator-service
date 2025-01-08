@@ -28,7 +28,7 @@ namespace bk {
         private:
             /** A vector of elevators to be managed by the system */
             std::vector<Elevator> m_elevators; 
-            //Elevator m_CurrentFloor; 
+            
 
             /**
              * @brief Prints a asthetic line with a counter
