@@ -3,6 +3,13 @@
  * 
  ****************************************************************************************************/
 
+/**
+ * @file   elevator.cpp
+ * @author Bartlomiej Kisielewski
+ * @date   Jan 2025
+ * @brief  Project conduct basic class of elevator and bigger class of system for elevator with proper logic.
+ */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

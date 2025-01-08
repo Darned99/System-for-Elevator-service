@@ -1,3 +1,15 @@
+/****************************************************************************************************
+ * This file is part of System for Elevator service
+ * 
+ ****************************************************************************************************/
+
+/**
+ * @file   system.cpp
+ * @author Bartlomiej Kisielewski
+ * @date   Jan 2025
+ * @brief  Project conduct basic class of elevator and bigger class of system for elevator with proper logic.
+ */
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -62,7 +74,7 @@ namespace bk{
             else {
                 dir = "Idle";
             }
-            
+
             std::cout << "\tCurrent floor: " << elevator.getCurrentFloor() 
                     << " || Direction: " << dir 
                     << " || Next Target: " << elevator.getNextTarget()

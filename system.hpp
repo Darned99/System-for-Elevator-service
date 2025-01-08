@@ -1,3 +1,15 @@
+/****************************************************************************************************
+ * This file is part of System for Elevator service
+ * 
+ ****************************************************************************************************/
+
+/**
+ * @file   system.hpp
+ * @author Bartlomiej Kisielewski
+ * @date   Jan 2025
+ * @brief  Project conduct basic class of elevator and bigger class of system for elevator with proper logic.
+ */
+
 #pragma once
 
 #include <iostream>
