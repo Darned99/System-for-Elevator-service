@@ -23,7 +23,7 @@ namespace bk{
         
     bk::System::System(int numElevators, int maxFloors) {
         for (int i = 0; i < numElevators; ++i) {
-            elevators.emplace_back(0, maxFloors, 0); 
+            m_elevators.emplace_back(0, maxFloors, 0); 
         }
     }
 
@@ -31,7 +31,7 @@ namespace bk{
      * Getter for elevator ID
      */
     Elevator& bk::System::getElevator(int elevatorID) {
-        return elevators[elevatorID];
+        return m_elevators[elevatorID];
     }
 
    /**
@@ -61,8 +61,8 @@ namespace bk{
 
         bk::System::LinePrint(100, counter++);
 
-        for (int i = 0; i < elevators.size(); ++i) {
-            elevators[i].displayStatus(i);
+        for (int i = 0; i < m_elevators.size(); ++i) {
+            m_elevators[i].displayStatus(i);
         }
 
         bk::System::LinePrint(100, counter++);
@@ -74,7 +74,7 @@ namespace bk{
      * 
      */
     void bk::System::performNextStep() {
-        for (auto &elevator : elevators) { 
+        for (auto &elevator : m_elevators) { 
             elevator.moveToFloor();
         }
     }
@@ -88,8 +88,8 @@ namespace bk{
         int bestElevator = -1;
         int minDistance = -1;
 
-        for (int i=0; i < elevators.size(); ++i) {
-            const Elevator& elevator = elevators[i];
+        for (int i=0; i < m_elevators.size(); ++i) {
+            const Elevator& elevator = m_elevators[i];
             int distance = std::abs(elevator.getCurrentFloor() - pickupFloor);
         
             if (elevator.canElevatorServeRequest(dir)) {
@@ -109,7 +109,7 @@ namespace bk{
     int bk::System::handleHallCall(int pickupFloor, direction dir) {
         int bestElevator = findBestElevator(pickupFloor, dir);
         if (bestElevator != -1) {
-            elevators[bestElevator].addTargetFloor(pickupFloor);
+            m_elevators[bestElevator].addTargetFloor(pickupFloor);
         }
         return bestElevator;
     }

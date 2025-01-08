@@ -27,7 +27,7 @@ namespace bk {
     class System {
         private:
             /** A vector of elevators to be managed by the system */
-            std::vector<Elevator> elevators; 
+            std::vector<Elevator> m_elevators; 
             //Elevator m_CurrentFloor; 
 
             /**
