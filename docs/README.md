@@ -56,6 +56,8 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 ## Compilation and Usage
 
 ### Selecting a Generator
+
+- **CMake should spot genererator by itself, however I've run into some troubles**
 CMake requires a generator to create the build system, the generator depends on your operating system and tools:
 - **My configuration is Windows with MinGW**: Use `"MinGW Makefiles"`:
 ```bash
