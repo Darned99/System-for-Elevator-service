@@ -1,0 +1,3 @@
+C:/Users/pc/Desktop/JPO2/System-for-Elevator-service/build/CMakeFiles/ElevatorSystem.dir
+C:/Users/pc/Desktop/JPO2/System-for-Elevator-service/build/CMakeFiles/edit_cache.dir
+C:/Users/pc/Desktop/JPO2/System-for-Elevator-service/build/CMakeFiles/rebuild_cache.dir
