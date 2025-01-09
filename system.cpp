@@ -23,16 +23,15 @@
 namespace bk{
         
     bk::System::System(int numElevators, int maxFloors) {
-        if (numElevators <= 0 || maxFloors <= 0) {
-            std::cerr << "Error: Number of elevators and floors must be greater than 0." << std::endl;
-            std::exit(EXIT_FAILURE);
+        if (numElevators <= 0 || maxFloors <= 1) {
+            std::cerr << "Error: Number of elevators must be greater than 0 and floor at least 1" << std::endl;
+            throw std::invalid_argument("Number of elevators must be greater than 0 and floor at least 1");
         }
-
+        
         for (int i = 0; i < numElevators; ++i) {
-            m_elevators.emplace_back(0, maxFloors, 0); 
+            m_elevators.emplace_back(0, maxFloors, 0);  
         }
     }
-
 
     /**
      * Getter for elevator ID
