@@ -55,9 +55,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 
 ## Compilation and Usage
 ```bash
-mkdir build
-cd build
-cmake -G "MinGW Makefiles" ..
-cmake --build .
-./ElevatorSystem
+cmake -G "MinGW Makefiles" -B build
+cmake --build build
+./build/ElevatorSystem
 ```
