@@ -23,7 +23,7 @@ int main() {
     
     std::cout << "\nEnter the number of floors in the building: ";
     std::cin >> maxFloors;
-    maxFloors += 1;
+    //maxFloors += 1;
     
     std::cout << "\nEnter the number of elevators in the building: ";
     std::cin >> numElevators;
@@ -49,10 +49,10 @@ int main() {
             int floor;
             int dirChoice;
 
-            std::cout << "Enter the floor to call from (0-" << maxFloors - 1 << "): ";
+            std::cout << "Enter the floor to call from (0-" << maxFloors << "): ";
             std::cin >> floor;
 
-            if (floor < 0 || floor >= maxFloors) {
+            if (floor < 0 || floor > maxFloors) {
                 std::cout << "Invalid floor. Please try again." << std::endl;
                 continue;
             }
@@ -96,10 +96,10 @@ int main() {
                 continue;
             }
 
-            std::cout << "Pick target floor (0-" << maxFloors - 1 << "): ";
+            std::cout << "Pick target floor (0-" << maxFloors << "): ";
             std::cin >> targetFloor;
 
-            if (targetFloor < 0 || targetFloor >= maxFloors) {
+            if (targetFloor < 0 || targetFloor > maxFloors) {
                 std::cout << "Invalid floor. Please try again" << std::endl;
                 continue;
             }
