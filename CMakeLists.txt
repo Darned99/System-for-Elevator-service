@@ -4,10 +4,6 @@ cmake_minimum_required(VERSION 3.10)
 #Standard of C++
 set(CMAKE_CXX_STANDARD 20)
 
-# Path to the compiler
-set(CMAKE_C_COMPILER "C:/msys64/ucrt64/bin/gcc.exe")
-set(CMAKE_CXX_COMPILER "C:/msys64/ucrt64/bin/g++.exe")
-
 # Project name
 project(ElevatorSystem)
 
