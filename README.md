@@ -31,7 +31,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 - **`stop()`**: Sets the elevator direction to 'idle'
 - **`moveToFloor()`**: Handles movement to the next target floor.
 - **`displayStatus()`**: Displays current status of elevator
-- **`directionToString()`**: Convect direction enum into string
+- **`directionToString()`**: Convert direction enum into string
 - **`addTargetFloor(int floor)`**: Adds a floor to the target queue if valid and not already present.
 - **`canElevatorServeRequest(direction dir)`**: Checks if an elevator can handle a request based on its direction.
 
