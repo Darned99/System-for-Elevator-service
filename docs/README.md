@@ -66,7 +66,7 @@ cmake --build build
 ./build/ElevatorSystem
 ```
 
-- **My configuration is Windows with MinGW**: Use `"MinGW Makefiles"`:
+- **CMake should detect genererator by itself then we would type commands below, however I've run into some troubles and I had to use cmake with -G option**
 ```bash
 cmake -G "MinGW Makefiles" -B build
 cmake --build build
