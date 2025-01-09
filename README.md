@@ -51,7 +51,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 
 ## Requirements
 - A C++20-compatible compiler
-- C++ libraries: `<iostream>`, `<vector>`, `<algorithm>`, `<string>`
+- CMake version 3.10 or higher
 
 ## Compilation and Usage
 ```bash
