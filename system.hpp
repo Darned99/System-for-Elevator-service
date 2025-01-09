@@ -44,9 +44,9 @@ namespace bk {
              * @brief Finds the best elevator to handle a given call
              * @param pickupFloor The floor where the call is from
              * @param dir The direction of the requested elevator movement
-             * @return ID of the best elevator, or -1 if no suitable elevator is found
+             * @return ID of the best elevator
              */
-            int findBestElevator(int pickupFloor, direction dir); // tu może być że winda nie przyjmie użytkownika calla nie dostanie czegos do bufora
+            int findBestElevator(int pickupFloor, direction dir);
 
 
         public:
@@ -56,7 +56,7 @@ namespace bk {
              * @param numElevators Number of elevator in the system
              * @param maxFloors Maximum number of floors the elevators can service
              */
-            System(int numElevators, int maxFloors);  // walidacje dodać
+            System(int numElevators, int maxFloors);
 
             /**
              * Getter for elevator id
@@ -90,7 +90,7 @@ namespace bk {
              * @brief Handles a hall call by assigning it to the best elevator
              * @param pickupFloor The floor where the call is from
              * @param dir The direction of the requested elevator movement
-             * @return ID of the assigned elevator, or -1 if no suitable elevator is found
+             * @return ID of the assigned elevator
              */
             int handleHallCall(int pickupFloor, direction dir);
             
