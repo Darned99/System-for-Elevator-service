@@ -59,7 +59,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 
 CMake requires a generator to create the build system, the generator depends on your operating system and tools:
 
-- **CMake should spot genererator by itself, however I've run into some troubles and I had to use cmake with -G option**
+- **CMake should detect genererator by itself then we would type commands below, however I've run into some troubles and I had to use cmake with -G option**
 ```bash
 cmake -B build
 cmake --build build
