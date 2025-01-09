@@ -33,7 +33,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 - **`displayStatus()`**: Displays current status of elevator
 - **`directionToString()`**: Convect direction enum into string
 - **`addTargetFloor(int floor)`**: Adds a floor to the target queue if valid and not already present.
-- **`canElevatorServeRequest(Elevator& elevator, direction dir)`**: Checks if an elevator can handle a request based on its direction.
+- **`canElevatorServeRequest(direction dir)`**: Checks if an elevator can handle a request based on its direction.
 
 
 ### `System`
