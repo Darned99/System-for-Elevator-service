@@ -150,7 +150,7 @@ namespace bk {
              * @brief Adds a target floor to the buffer
              * @param floor Added floor to the buffer
              */
-            void addTargetFloor(int floor); //kod błędu powinien zwracac 
+            void addTargetFloor(int floor); 
 
             /**
              * Checks whether the elevator can handle a given call
