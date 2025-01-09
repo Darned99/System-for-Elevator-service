@@ -91,6 +91,7 @@ namespace bk{
      * Finds the best elevator that can handle the call
      * 
      */
+     
     int bk::System::findBestElevator(int pickupFloor, direction dir) {
         int bestElevator = -1;
         int minDistance = -1;
@@ -106,6 +107,23 @@ namespace bk{
                 }
             }
         }
+
+        if (bestElevator == -1) {
+            for (int i = 0; i < m_elevators.size(); ++i){
+                const Elevator& elevator = m_elevators[i];
+                int distance = std::abs(elevator.getCurrentFloor() - pickupFloor);
+
+                if ((pickupFloor < elevator.getCurrentFloor() && elevator.getDirection() == direction::down) ||
+                    (pickupFloor > elevator.getCurrentFloor() && elevator.getDirection() == direction::up)) {
+                        
+                        if (minDistance == -1 || distance < minDistance) {
+                            minDistance = distance;
+                            bestElevator = i;
+                        }
+                }
+            }
+        }
+
         return bestElevator;
     }
 
