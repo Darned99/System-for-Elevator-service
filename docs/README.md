@@ -55,6 +55,9 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 
 ## Compilation and Usage
 ```bash
-g++ -std=c++20 elevator.cpp system.cpp test.cpp -o elevator_system
-./elevator_system
+mkdir build
+cd build
+cmake -G "MinGW Makefiles" ..
+cmake --build .
+./ElevatorSystem
 ```
