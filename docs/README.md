@@ -54,6 +54,10 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 - CMake version 3.10 or higher
 
 ## Compilation and Usage
+
+### Selecting a Generator
+CMake requires a generator to create the build system, the generator depends on your operating system and tools:
+- **My configuration is Windows with MinGW (e.g. MSYS2)**: Use `"MinGW Makefiles"`:
 ```bash
 cmake -G "MinGW Makefiles" -B build
 cmake --build build
