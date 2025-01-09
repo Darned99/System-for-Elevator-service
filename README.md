@@ -57,7 +57,7 @@ Project conduct basic class of elevator and bigger class of system for elevator 
 
 ### Selecting a Generator
 CMake requires a generator to create the build system, the generator depends on your operating system and tools:
-- **My configuration is Windows with MinGW (e.g. MSYS2)**: Use `"MinGW Makefiles"`:
+- **My configuration is Windows with MinGW**: Use `"MinGW Makefiles"`:
 ```bash
 cmake -G "MinGW Makefiles" -B build
 cmake --build build
